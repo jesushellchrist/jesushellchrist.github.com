@@ -1,89 +1,34 @@
+<!-- index.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Roblox Script Demo</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #2d2d2d;
-            color: white;
-        }
-
-        h1 {
-            text-align: center;
-            padding: 20px;
-            background-color: #1f1f1f;
-        }
-
-        .content {
-            text-align: center;
-            padding: 20px;
-        }
-
-        #keyGui {
-            display: none;
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Booga Scripts</title>
+  <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-
-    <h1>Roblox Script Demo</h1>
-
-    <div class="content">
-        <p>This demo showcases a simple Roblox script with a key validation and farming GUI.</p>
-        <div id="keyGui">
-            <input type="text" id="keyInput" placeholder="Enter Key">
-            <button onclick="validateKey()">Submit</button>
-            <p id="errorMessage" style="color: red; display: none;">Wrong Key</p>
-        </div>
-        <div id="farmGui" style="display: none;">
-            <button id="startFarmBtn">Start Farm</button>
-            <button id="antiAfkBtn">Enable Anti-AFK</button>
-        </div>
+  <canvas id="bg"></canvas>
+  <div class="container">
+    <h1>BOOGA SCRIPTS</h1>
+    <div class="panels">
+      <div class="panel">
+        <h2>Free Scripts<br>Download</h2>
+        <a href="scripts/booga_hub_v6.lua" download>Booga Hub V6</a>
+        <a href="scripts/booga_autobroly_v10.lua" download>Booga AutoBroly V10</a>
+        <a href="scripts/booga_cmds_v2.lua" download>Booga CMDs V2</a>
+        <a href="scripts/booga_auto_top_v2.lua" download>Booga Auto Top V2</a>
+        <a href="scripts/booga_inf_stats_v4_5.lua" download>Booga Inf Stats V4.5</a>
+        <a href="scripts/booga_hub_v3_free.lua" download>Booga Hub V3 Free - Dragon Soul</a>
+      </div>
+      <div class="panel">
+        <h2>Paid Scripts<br>Download</h2>
+        <a href="scripts/booga_infinite_stats_v5.lua" download>Booga Infinite Stats V5</a>
+        <a href="scripts/booga_hub_v3_ds.lua" download>Booga Hub V3 - Dragon Soul</a>
+        <a href="scripts/booga_2xp_freeze.lua" download>Booga 2XP Freeze</a>
+      </div>
     </div>
-
-    <script>
-        // Your Roblox script
-        let player = {
-            Name: "Player1",
-            Character: { HumanoidRootPart: { CFrame: {} }, Humanoid: {} },
-            PlayerGui: document.body
-        };
-
-        let validKey = "123";
-
-        // Key GUI logic
-        function validateKey() {
-            let input = document.getElementById('keyInput').value;
-            if (input === validKey) {
-                document.getElementById('keyGui').style.display = 'none';
-                createFarmGui();
-            } else {
-                document.getElementById('errorMessage').style.display = 'block';
-                document.getElementById('keyInput').value = '';
-            }
-        }
-
-        // Farm GUI logic
-        function createFarmGui() {
-            document.getElementById('farmGui').style.display = 'block';
-            let isFarming = false;
-            let antiAFKEnabled = false;
-
-            document.getElementById('startFarmBtn').addEventListener('click', () => {
-                isFarming = !isFarming;
-                document.getElementById('startFarmBtn').textContent = isFarming ? 'Stop Farm' : 'Start Farm';
-            });
-
-            document.getElementById('antiAfkBtn').addEventListener('click', () => {
-                antiAFKEnabled = !antiAFKEnabled;
-                document.getElementById('antiAfkBtn').textContent = antiAFKEnabled ? 'Disable Anti-AFK' : 'Enable Anti-AFK';
-            });
-        }
-    </script>
+  </div>
+  <script src="script.js"></script>
 </body>
 </html>
