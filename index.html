@@ -61,7 +61,7 @@
       }
 
       /* Particle Effect */
-      .particle {
+      .dot-particle {
         position: absolute;
         width: 10px;
         height: 10px;
@@ -83,6 +83,29 @@
         }
       }
 
+      /* Lightning Spark Effect */
+      .spark-particle {
+        position: absolute;
+        width: 4px;
+        height: 20px;
+        background-color: #c084fc; /* Lightning color */
+        border-radius: 2px;
+        transform: rotate(45deg);
+        opacity: 0.8;
+        animation: spark 3s infinite linear;
+      }
+
+      @keyframes spark {
+        0% {
+          transform: translateY(0) rotate(45deg);
+          opacity: 1;
+        }
+        100% {
+          transform: translateY(-40px) rotate(45deg);
+          opacity: 0;
+        }
+      }
+
     </style>
   </head>
   <body>
@@ -93,33 +116,43 @@
 
     <div id="Background"></div>
 
-<script>
-  const background = document.getElementById('Background');
+    <script>
+      const background = document.getElementById('Background');
 
-  // Floating dot particles
-  const numDots = 50;
-  for (let i = 0; i < numDots; i++) {
-    const particle = document.createElement('div');
-    particle.classList.add('dot-particle');
-    particle.style.left = `${Math.random() * 100}vw`;
-    particle.style.top = `${Math.random() * 100}vh`;
-    particle.style.animationDuration = `${Math.random() * 5 + 3}s`;
-    particle.style.animationDelay = `${Math.random() * 5}s`;
-    background.appendChild(particle);
-  }
+      // Floating dot particles
+      const numDots = 50;
+      for (let i = 0; i < numDots; i++) {
+        const particle = document.createElement('div');
+        particle.classList.add('dot-particle');
+        particle.style.left = `${Math.random() * 100}vw`;
+        particle.style.top = `${Math.random() * 100}vh`;
+        particle.style.animationDuration = `${Math.random() * 5 + 3}s`;
+        particle.style.animationDelay = `${Math.random() * 5}s`;
+        background.appendChild(particle);
+      }
 
-  // Comet streaks
-  const numComets = 10;
-  for (let i = 0; i < numComets; i++) {
-    const comet = document.createElement('div');
-    comet.classList.add('comet');
-    comet.style.top = `${Math.random() * 100 - 50}vh`;
-    comet.style.left = `${Math.random() * 100 - 50}vw`;
-    comet.style.animationDelay = `${Math.random() * 10}s`;
-    background.appendChild(comet);
-  }
-</script>
+      // Lightning Spark particles
+      const numSparks = 15; // Adjust the number of sparks as needed
+      for (let i = 0; i < numSparks; i++) {
+        const spark = document.createElement('div');
+        spark.classList.add('spark-particle');
+        spark.style.left = `${Math.random() * 100}vw`;
+        spark.style.top = `${Math.random() * 100}vh`;
+        spark.style.animationDuration = `${Math.random() * 3 + 2}s`;
+        spark.style.animationDelay = `${Math.random() * 3}s`;
+        background.appendChild(spark);
+      }
 
-
+      // Comet streaks
+      const numComets = 10;
+      for (let i = 0; i < numComets; i++) {
+        const comet = document.createElement('div');
+        comet.classList.add('comet');
+        comet.style.top = `${Math.random() * 100 - 50}vh`;
+        comet.style.left = `${Math.random() * 100 - 50}vw`;
+        comet.style.animationDelay = `${Math.random() * 10}s`;
+        background.appendChild(comet);
+      }
+    </script>
   </body>
 </html>
