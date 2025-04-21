@@ -23,7 +23,7 @@ body, html {
 
 h1 {
   font-size: 3em;
-  color: orange;
+  color: purple;
 }
 
 .panels {
@@ -42,7 +42,7 @@ h1 {
 }
 
 .panel h2 {
-  color: orange;
+  color: purple;
   margin-bottom: 20px;
 }
 
@@ -50,7 +50,7 @@ h1 {
   display: block;
   margin: 10px 0;
   padding: 10px;
-  background: orange;
+  background: purple;
   color: white;
   border-radius: 5px;
   text-decoration: none;
@@ -58,5 +58,5 @@ h1 {
 }
 
 .panel a:hover {
-  background: #ff7f00;
+  background: #e100ff;
 }
