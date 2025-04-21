@@ -2,29 +2,27 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
-    <title>Unscriptify scripts</title>
+    <title>Unscriptify Scripts - Unique Edition</title>
     <link rel="icon" href="assets/logo.svg" type="image/svg+xml">
-  
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet"/>
-
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet"/>
+    
     <style>
       * {
         margin: 0;
         padding: 0;
-        box-sizing: border-box
+        box-sizing: border-box;
       }
 
       body {
-        font-family: 'Montserrat', sans-serif;
-        overflow-y: auto;
+        font-family: 'Poppins', sans-serif;
         display: flex;
         flex-direction: column;
-        justify-content: flex-start;
         align-items: center;
+        justify-content: flex-start;
         min-height: 100vh;
-        background: #121212;
-        color: #f0f0f0
+        background: #ffffff;
+        color: #8e44ad; /* Purple text */
+        overflow: hidden;
       }
 
       #Background {
@@ -34,18 +32,15 @@
         width: 100%;
         height: 100%;
         z-index: -2;
-        background: #121212
       }
 
       .Title {
-        font-size: 3rem;
-        font-weight: bold;
-        color: #ff6f61;
-        letter-spacing: 2px;
-        margin-top: 5px;
-        margin-bottom: 5px;
+        font-size: 3.5rem;
+        font-weight: 600;
+        color: #8e44ad; /* Purple title */
+        letter-spacing: 3px;
         text-align: center;
-        width: 100%
+        margin-top: 20px;
       }
 
       .Scripts {
@@ -55,171 +50,121 @@
         align-items: stretch;
         width: 80%;
         max-width: 1200px;
-        padding: 1rem;
-        flex-grow: 1
-      }
-
-      .FreeScripts, .PaidScripts {
-        position: relative;
-        background: rgba(0, 0, 0, 0.75);
-        backdrop-filter: blur(8px);
-        border-radius: 15px;
-        padding: 1.5rem;
-        width: 100%;
-        max-width: 500px;
-        text-align: center;
-        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7);
-        animation: FadeIn 1s ease-out forwards;
-        opacity: 0;
+        padding: 2rem;
+        gap: 1.5rem;
         flex-grow: 1;
-        display: flex;
-        flex-direction: column;
-        justify-content: flex-start;
-        transition: transform 0.3s ease;
-        margin: 1rem
       }
 
-      .FreeScripts:hover, .PaidScripts:hover {
-        transform: scale(1.03)
+      .ScriptCard {
+        background: #ffffff;
+        border-radius: 20px;
+        padding: 2rem;
+        text-align: center;
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        width: 100%;
+        max-width: 400px;
       }
 
-      @keyframes FadeIn {
-        to {
-          opacity: 1
-        }
+      .ScriptCard:hover {
+        transform: scale(1.05);
+        box-shadow: 0 25px 60px rgba(0, 0, 0, 0.2);
       }
 
       h1 {
         font-size: 2.5rem;
-        margin-bottom: 1.5rem;
-        letter-spacing: 2px;
-        color: #ff6f61;
-        border-bottom: 2px solid #ff6f61;
-        display: inline-block;
-        padding-bottom: 0.5rem;
-        word-wrap: break-word
+        color: #8e44ad; /* Purple heading */
+        margin-bottom: 20px;
+        text-transform: uppercase;
       }
 
       .Button {
         display: inline-block;
-        margin: 0.5rem 0;
-        padding: 1rem 2rem;
+        padding: 1rem 2.5rem;
         font-size: 1rem;
-        font-weight: bold;
-        text-decoration: none;
         color: #fff;
-        background: linear-gradient(45deg, #ff6f61, #ff3b2e);
-        border: none;
+        background: #8e44ad; /* Purple button */
         border-radius: 50px;
-        transition: transform 0.3s ease, box-shadow 0.3s ease;
-        cursor: pointer
+        text-decoration: none;
+        text-align: center;
+        transition: transform 0.3s, background-color 0.3s;
+        font-weight: 600;
       }
 
       .Button:hover {
         transform: translateY(-5px);
-        box-shadow: 0 10px 20px rgba(255, 111, 97, 0.5)
+        background-color: #9b59b6; /* Slightly lighter purple on hover */
       }
 
       ul {
         list-style: none;
         padding: 0;
-        flex-grow: 1;
         display: flex;
         flex-direction: column;
-        justify-content: flex-start
-      }
-
-      li {
-        margin: 1rem 0
+        gap: 1rem;
       }
 
       .DcServerButton {
         position: fixed;
         bottom: 20px;
         right: 20px;
-        z-index: 10
+        background-color: #9b59b6;
+        font-weight: bold;
+        padding: 1rem 1.5rem;
+        border-radius: 50px;
+        color: #fff;
+        text-decoration: none;
+        box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+      }
+
+      .DcServerButton:hover {
+        background-color: #8e44ad;
+        transform: translateY(-5px);
       }
 
       @media (max-width: 1280px) {
         .Title {
-          font-size: 2.5rem
+          font-size: 2.8rem;
         }
 
         .Scripts {
           flex-direction: column;
-          padding: 1rem
+          gap: 1rem;
         }
 
-        .FreeScripts, .PaidScripts {
-          max-width: 100%;
-          width: 90%
+        .ScriptCard {
+          width: 90%;
         }
       }
 
       @media (max-width: 768px) {
         .Title {
-          font-size: 2rem
+          font-size: 2.2rem;
+        }
+
+        .ScriptCard {
+          max-width: 100%;
+          width: 100%;
         }
 
         h1 {
-          font-size: 2rem
-        }
-
-        .Button {
-          padding: 0.8rem 1.5rem;
-          font-size: 0.9rem
-        }
-
-        .Scripts {
-          width: 90%
-        }
-
-        .FreeScripts, .PaidScripts {
-          width: 100%;
-          margin-bottom: 1rem
-        }
-      }
-
-      @media (max-width: 480px) {
-        .Title {
-          font-size: 1.8rem
-        }
-
-        h1 {
-          font-size: 1.8rem
-        }
-
-        .Button {
-          padding: 0.6rem 1rem;
-          font-size: 0.8rem
-        }
-
-        .Scripts {
-          flex-direction: column;
-          width: 100%;
-          padding: 0.5rem
-        }
-
-        .FreeScripts, .PaidScripts {
-          width: 100%;
-          padding: 1rem;
-          margin-bottom: 1rem
+          font-size: 2rem;
         }
       }
     </style>
   </head>
   <body>
     <canvas id="Background"></canvas>
-    <div class="Title">Unscriptify scripts</div>
+    <div class="Title">Unscriptify Scripts</div>
     <div class="Scripts">
-      <div class="FreeScripts">
+      <div class="ScriptCard">
         <h1>Free Scripts</h1>
         <ul>
-          <li><a href="/Scripts/Unscriptify BABFT AutoFarm.lua" download class="Button">Unscriptify BABFT AutoFarm</a></li>
+          <li><a href="/Scripts/Unscriptify_BABFT_AutoFarm.lua" download class="Button">Unscriptify BABFT AutoFarm</a></li>
         </ul>
       </div>
 
-      <div class="PaidScripts">
+      <div class="ScriptCard">
         <h1>Paid Scripts</h1>
         <ul>
           <li><a href="https://jesushellchrist.github.io/unreleased" class="Button" target="_blank">Unscriptify Heaven Dummy Auto</a></li>
@@ -227,60 +172,53 @@
       </div>
     </div>
 
-    <a href="https://discord.gg/9V5xVad7aD" class="Button DcServerButton">Feel Free to join Unscriptify's Discord!</a>
+    <a href="https://discord.gg/9V5xVad7aD" class="Button DcServerButton">Join Unscriptify's Discord!</a>
 
     <script>
-      const Background = document.getElementById("Background")
-      const Context = Background.getContext("2d")
+      const Background = document.getElementById("Background");
+      const Context = Background.getContext("2d");
 
-      const Width = window.innerWidth
-      const Height = window.innerHeight
+      const Width = window.innerWidth;
+      const Height = window.innerHeight;
 
-      Background.width = Width
-      Background.height = Height
+      Background.width = Width;
+      Background.height = Height;
 
       window.onresize = () => {
-        Background.width = window.innerWidth
-        Background.height = window.innerHeight
-      }
+        Background.width = window.innerWidth;
+        Background.height = window.innerHeight;
+      };
 
-      const Circles = Array.from({length: 150}, () => ({
+      const Stars = Array.from({ length: 200 }, () => ({
         X: Math.random() * Width,
         Y: Math.random() * Height,
         Size: Math.random() * 2 + 1,
         SpeedX: Math.random() * 0.5 - 0.25,
         SpeedY: Math.random() * 0.5 - 0.25
-      }))
+      }));
 
-      function Animate() {
-        Context.clearRect(0, 0, Width, Height)
+      function AnimateStars() {
+        Context.clearRect(0, 0, Width, Height);
 
-        for (const Circle of Circles) {
-          Circle.X += Circle.SpeedX
-          Circle.Y += Circle.SpeedY
+        for (const Star of Stars) {
+          Star.X += Star.SpeedX;
+          Star.Y += Star.SpeedY;
 
-          if (Circle.X < 0) {
-            Circle.X = Width
-          } else if (Circle.X > Width) {
-            Circle.X = 0
-          }
-          
-          if (Circle.Y < 0) {
-            Circle.Y = Height
-          } else if (Circle.Y > Height) {
-            Circle.Y = 0
-          }          
+          if (Star.X < 0) Star.X = Width;
+          if (Star.X > Width) Star.X = 0;
+          if (Star.Y < 0) Star.Y = Height;
+          if (Star.Y > Height) Star.Y = 0;
 
-          Context.fillStyle = "#FFF"
-          Context.beginPath()
-          Context.arc(Circle.X, Circle.Y, Circle.Size, 0, Math.PI * 2)
-          Context.fill()
+          Context.fillStyle = "#8e44ad";  // Purple stars
+          Context.beginPath();
+          Context.arc(Star.X, Star.Y, Star.Size, 0, Math.PI * 2);
+          Context.fill();
         }
 
-        requestAnimationFrame(Animate)
+        requestAnimationFrame(AnimateStars);
       }
 
-      Animate()
+      AnimateStars();
     </script>
   </body>
 </html>
