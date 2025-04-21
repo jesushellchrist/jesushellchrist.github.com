@@ -51,12 +51,61 @@
         background-color: #9b59b6; /* Slightly lighter purple on hover */
       }
 
+      #Background {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: -2;
+      }
+
+      /* Particle Effect */
+      .particle {
+        position: absolute;
+        width: 10px;
+        height: 10px;
+        background-color: #8e44ad; /* Purple particles */
+        border-radius: 50%;
+        opacity: 0.8;
+        animation: float 5s infinite ease-in-out;
+      }
+
+      @keyframes float {
+        0% {
+          transform: translateY(0) scale(1);
+        }
+        50% {
+          transform: translateY(-20px) scale(1.5);
+        }
+        100% {
+          transform: translateY(0) scale(1);
+        }
+      }
+
     </style>
   </head>
   <body>
     <div>
       <div class="Title">Welcome to Unscriptify Scripts</div>
-      <a href="Unscriptify.html" class="Button">Go to Scripts</a>
+      <a href="scripts.html" class="Button">Go to Scripts</a>
     </div>
+
+    <div id="Background"></div>
+
+    <script>
+      // Particle generation
+      const background = document.getElementById('Background');
+      const numParticles = 50;
+
+      for (let i = 0; i < numParticles; i++) {
+        const particle = document.createElement('div');
+        particle.classList.add('particle');
+        particle.style.left = `${Math.random() * 100}vw`;
+        particle.style.animationDuration = `${Math.random() * 5 + 3}s`;
+        particle.style.animationDelay = `${Math.random() * 5}s`;
+        background.appendChild(particle);
+      }
+    </script>
   </body>
 </html>
