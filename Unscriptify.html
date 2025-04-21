@@ -1,10 +1,10 @@
 <html>
   <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>Unscriptify Scripts</title>
-    <link rel="icon" href="assets/logo.svg" type="image/svg+xml">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet"/>
+    <link rel="icon" type="image/png" href="logo.png" />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
     
     <style>
       * {
@@ -21,7 +21,7 @@
         justify-content: flex-start;
         min-height: 100vh;
         background: #ffffff;
-        color: #8e44ad; /* Purple text */
+        color: #8e44ad;
         overflow: hidden;
         padding: 2rem;
       }
@@ -42,6 +42,7 @@
         text-align: center;
         box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
         width: 100%;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
       }
 
       .ScriptCard:hover {
@@ -51,7 +52,7 @@
 
       h1 {
         font-size: 2.5rem;
-        color: #8e44ad; /* Purple heading */
+        color: #8e44ad;
         margin-bottom: 20px;
         text-transform: uppercase;
       }
@@ -60,17 +61,18 @@
         padding: 1rem 2.5rem;
         font-size: 1rem;
         color: #fff;
-        background: #8e44ad; /* Purple button */
+        background: #8e44ad;
         border-radius: 50px;
         text-decoration: none;
         text-align: center;
         transition: transform 0.3s, background-color 0.3s;
         font-weight: 600;
+        display: inline-block;
       }
 
       .Button:hover {
         transform: translateY(-5px);
-        background-color: #9b59b6; /* Slightly lighter purple on hover */
+        background-color: #9b59b6;
       }
 
       .BackButton {
@@ -85,31 +87,31 @@
         width: 100%;
         height: 100%;
         z-index: -2;
+        overflow: hidden;
       }
 
-      /* Particle Effect */
-      .particle {
+      /* ✨ Star particle style */
+      .star {
         position: absolute;
-        width: 10px;
-        height: 10px;
-        background-color: #8e44ad; /* Purple particles */
+        width: 4px;
+        height: 4px;
+        background: #8e44ad;
         border-radius: 50%;
         opacity: 0.8;
-        animation: float 5s infinite ease-in-out;
+        box-shadow: 0 0 8px #8e44ad;
+        animation: twinkle infinite;
       }
 
-      @keyframes float {
-        0% {
-          transform: translateY(0) scale(1);
+      @keyframes twinkle {
+        0%, 100% {
+          opacity: 0.5;
+          transform: scale(1);
         }
         50% {
-          transform: translateY(-20px) scale(1.5);
-        }
-        100% {
-          transform: translateY(0) scale(1);
+          opacity: 1;
+          transform: scale(1.5);
         }
       }
-
     </style>
   </head>
   <body>
@@ -134,17 +136,17 @@
     <div id="Background"></div>
 
     <script>
-      // Particle generation
       const background = document.getElementById('Background');
-      const numParticles = 50;
+      const numStars = 80;
 
-      for (let i = 0; i < numParticles; i++) {
-        const particle = document.createElement('div');
-        particle.classList.add('particle');
-        particle.style.left = `${Math.random() * 100}vw`;
-        particle.style.animationDuration = `${Math.random() * 5 + 3}s`;
-        particle.style.animationDelay = `${Math.random() * 5}s`;
-        background.appendChild(particle);
+      for (let i = 0; i < numStars; i++) {
+        const star = document.createElement('div');
+        star.classList.add('star');
+        star.style.left = `${Math.random() * 100}vw`;
+        star.style.top = `${Math.random() * 100}vh`;
+        star.style.animationDuration = `${Math.random() * 3 + 2}s`;
+        star.style.animationDelay = `${Math.random() * 5}s`;
+        background.appendChild(star);
       }
     </script>
   </body>
