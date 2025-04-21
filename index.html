@@ -7,7 +7,7 @@
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <canvas id="bg"></canvas>
+  <div id="particles.js"></div>
   <div class="container">
     <h1>UNSCRIPTIFY SCRIPTS</h1>
     <div class="panels">
@@ -21,6 +21,11 @@
       </div>
     </div>
   </div>
-  <script src="script.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/particles.js"></script>
+  <script>
+    particlesJS.load('particles-js', 'particles.json', function () {
+      console.log('particles.js loaded');
+    });
+  </script>
 </body>
 </html>
