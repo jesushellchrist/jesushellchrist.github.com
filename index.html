@@ -2,7 +2,7 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Unscriptify Scripts - Unique Edition</title>
+    <title>Welcome to Unscriptify Scripts</title>
     <link rel="icon" href="assets/logo.svg" type="image/svg+xml">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet"/>
     
@@ -16,72 +16,27 @@
       body {
         font-family: 'Poppins', sans-serif;
         display: flex;
-        flex-direction: column;
         align-items: center;
-        justify-content: flex-start;
+        justify-content: center;
         min-height: 100vh;
         background: #ffffff;
         color: #8e44ad; /* Purple text */
         overflow: hidden;
-      }
-
-      #Background {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        z-index: -2;
+        text-align: center;
       }
 
       .Title {
-        font-size: 3.5rem;
+        font-size: 4rem;
         font-weight: 600;
         color: #8e44ad; /* Purple title */
         letter-spacing: 3px;
-        text-align: center;
         margin-top: 20px;
       }
 
-      .Scripts {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: space-evenly;
-        align-items: stretch;
-        width: 80%;
-        max-width: 1200px;
-        padding: 2rem;
-        gap: 1.5rem;
-        flex-grow: 1;
-      }
-
-      .ScriptCard {
-        background: #ffffff;
-        border-radius: 20px;
-        padding: 2rem;
-        text-align: center;
-        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
-        transition: transform 0.3s ease, box-shadow 0.3s ease;
-        width: 100%;
-        max-width: 400px;
-      }
-
-      .ScriptCard:hover {
-        transform: scale(1.05);
-        box-shadow: 0 25px 60px rgba(0, 0, 0, 0.2);
-      }
-
-      h1 {
-        font-size: 2.5rem;
-        color: #8e44ad; /* Purple heading */
-        margin-bottom: 20px;
-        text-transform: uppercase;
-      }
-
       .Button {
-        display: inline-block;
+        margin-top: 20px;
         padding: 1rem 2.5rem;
-        font-size: 1rem;
+        font-size: 1.2rem;
         color: #fff;
         background: #8e44ad; /* Purple button */
         border-radius: 50px;
@@ -96,129 +51,12 @@
         background-color: #9b59b6; /* Slightly lighter purple on hover */
       }
 
-      ul {
-        list-style: none;
-        padding: 0;
-        display: flex;
-        flex-direction: column;
-        gap: 1rem;
-      }
-
-      .DcServerButton {
-        position: fixed;
-        bottom: 20px;
-        right: 20px;
-        background-color: #9b59b6;
-        font-weight: bold;
-        padding: 1rem 1.5rem;
-        border-radius: 50px;
-        color: #fff;
-        text-decoration: none;
-        box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
-      }
-
-      .DcServerButton:hover {
-        background-color: #8e44ad;
-        transform: translateY(-5px);
-      }
-
-      @media (max-width: 1280px) {
-        .Title {
-          font-size: 2.8rem;
-        }
-
-        .Scripts {
-          flex-direction: column;
-          gap: 1rem;
-        }
-
-        .ScriptCard {
-          width: 90%;
-        }
-      }
-
-      @media (max-width: 768px) {
-        .Title {
-          font-size: 2.2rem;
-        }
-
-        .ScriptCard {
-          max-width: 100%;
-          width: 100%;
-        }
-
-        h1 {
-          font-size: 2rem;
-        }
-      }
     </style>
   </head>
   <body>
-    <canvas id="Background"></canvas>
-    <div class="Title">Unscriptify Scripts</div>
-    <div class="Scripts">
-      <div class="ScriptCard">
-        <h1>Free Scripts</h1>
-        <ul>
-          <li><a href="/Scripts/Unscriptify_BABFT_AutoFarm.lua" download class="Button">Unscriptify BABFT AutoFarm</a></li>
-        </ul>
-      </div>
-
-      <div class="ScriptCard">
-        <h1>Paid Scripts</h1>
-        <ul>
-          <li><a href="https://jesushellchrist.github.io/unreleased" class="Button" target="_blank">Unscriptify Heaven Dummy Auto</a></li>
-        </ul>
-      </div>
+    <div>
+      <div class="Title">Welcome to Unscriptify Scripts</div>
+      <a href="scripts.html" class="Button">Go to Scripts</a>
     </div>
-
-    <a href="https://discord.gg/9V5xVad7aD" class="Button DcServerButton">Join Unscriptify's Discord!</a>
-
-    <script>
-      const Background = document.getElementById("Background");
-      const Context = Background.getContext("2d");
-
-      const Width = window.innerWidth;
-      const Height = window.innerHeight;
-
-      Background.width = Width;
-      Background.height = Height;
-
-      window.onresize = () => {
-        Background.width = window.innerWidth;
-        Background.height = window.innerHeight;
-      };
-
-      const Stars = Array.from({ length: 200 }, () => ({
-        X: Math.random() * Width,
-        Y: Math.random() * Height,
-        Size: Math.random() * 2 + 1,
-        SpeedX: Math.random() * 0.5 - 0.25,
-        SpeedY: Math.random() * 0.5 - 0.25
-      }));
-
-      function AnimateStars() {
-        Context.clearRect(0, 0, Width, Height);
-
-        for (const Star of Stars) {
-          Star.X += Star.SpeedX;
-          Star.Y += Star.SpeedY;
-
-          if (Star.X < 0) Star.X = Width;
-          if (Star.X > Width) Star.X = 0;
-          if (Star.Y < 0) Star.Y = Height;
-          if (Star.Y > Height) Star.Y = 0;
-
-          Context.fillStyle = "#8e44ad";  // Purple stars
-          Context.beginPath();
-          Context.arc(Star.X, Star.Y, Star.Size, 0, Math.PI * 2);
-          Context.fill();
-        }
-
-        requestAnimationFrame(AnimateStars);
-      }
-
-      AnimateStars();
-    </script>
   </body>
 </html>
