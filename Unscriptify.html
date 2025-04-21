@@ -1,0 +1,101 @@
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unscriptify Scripts</title>
+    <link rel="icon" href="assets/logo.svg" type="image/svg+xml">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet"/>
+    
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: 'Poppins', sans-serif;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start;
+        min-height: 100vh;
+        background: #ffffff;
+        color: #8e44ad; /* Purple text */
+        overflow: hidden;
+        padding: 2rem;
+      }
+
+      .Scripts {
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+        width: 100%;
+        max-width: 800px;
+        margin-top: 30px;
+      }
+
+      .ScriptCard {
+        background: #ffffff;
+        border-radius: 20px;
+        padding: 2rem;
+        text-align: center;
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        width: 100%;
+      }
+
+      .ScriptCard:hover {
+        transform: scale(1.05);
+        box-shadow: 0 25px 60px rgba(0, 0, 0, 0.2);
+      }
+
+      h1 {
+        font-size: 2.5rem;
+        color: #8e44ad; /* Purple heading */
+        margin-bottom: 20px;
+        text-transform: uppercase;
+      }
+
+      .Button {
+        padding: 1rem 2.5rem;
+        font-size: 1rem;
+        color: #fff;
+        background: #8e44ad; /* Purple button */
+        border-radius: 50px;
+        text-decoration: none;
+        text-align: center;
+        transition: transform 0.3s, background-color 0.3s;
+        font-weight: 600;
+      }
+
+      .Button:hover {
+        transform: translateY(-5px);
+        background-color: #9b59b6; /* Slightly lighter purple on hover */
+      }
+
+      .BackButton {
+        margin-top: 20px;
+        background-color: #9b59b6;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="Scripts">
+      <div class="ScriptCard">
+        <h1>Free Scripts</h1>
+        <ul>
+          <li><a href="/Scripts/Unscriptify_BABFT_AutoFarm.lua" download class="Button">Unscriptify BABFT AutoFarm</a></li>
+        </ul>
+      </div>
+
+      <div class="ScriptCard">
+        <h1>Paid Scripts</h1>
+        <ul>
+          <li><a href="https://jesushellchrist.github.io/unreleased" class="Button" target="_blank">Unscriptify Heaven Dummy Auto</a></li>
+        </ul>
+      </div>
+
+      <a href="index.html" class="Button BackButton">Back to Welcome Page</a>
+    </div>
+  </body>
+</html>
